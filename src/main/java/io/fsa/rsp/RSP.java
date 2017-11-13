@@ -66,23 +66,23 @@ public class RSP {
 
     public static final class Game {
 
-        private final List<RSP.Stats> results = new ArrayList<>();
-
-        public final int getStoneValue() {
-            return RSP.Value.ROCK.ordinal();
-        }
+        private final List<RSP.Stats> stats = new ArrayList<>();
 
         public final int getNumberOfValues() {
             return RSP.Value.values().length;
         }
 
-        public final List<RSP.Stats> getResults() {
-            return new ArrayList<>(results);
+        public final int getRockValue() {
+            return RSP.Value.ROCK.ordinal();
+        }
+
+        public final List<RSP.Stats> getStats() {
+            return new ArrayList<>(stats);
         }
 
         public final RSP.Result run(final int value1, final int value2) {
             final RSP.Stats stats = new RSP.Stats(() -> RSP.Value.valueOf(value1), () -> RSP.Value.valueOf(value2));
-            results.add(stats);
+            this.stats.add(stats);
             return stats.getResult();
         }
     }

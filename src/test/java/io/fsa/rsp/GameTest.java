@@ -7,7 +7,7 @@ public class GameTest {
 
     @Test
     public void getStoneValue() throws Exception {
-        Assert.assertEquals(RSP.Value.ROCK.ordinal(), new RSP.Game().getStoneValue());
+        Assert.assertEquals(RSP.Value.ROCK.ordinal(), new RSP.Game().getRockValue());
     }
 
     @Test
@@ -18,8 +18,8 @@ public class GameTest {
     @Test
     public void getResults() throws Exception {
         final RSP.Game game = new RSP.Game();
-        Assert.assertEquals(0, game.getResults().size());
+        Assert.assertEquals(0, game.getStats().size());
         Assert.assertEquals(RSP.Result.DRAW, game.run(0, 0));
-        Assert.assertEquals(1, game.getResults().size());
+        Assert.assertEquals(1, game.getStats().size());
     }
 }

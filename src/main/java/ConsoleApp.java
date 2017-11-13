@@ -26,7 +26,7 @@ public class ConsoleApp {
 
         default void exit(final java.io.Console console, final RSP.Game game) {
             console.printf("%s", java.util.Arrays.toString(
-                    game.getResults().stream().map(stats -> String.valueOf(stats.getResult()))
+                    game.getStats().stream().map(stats -> String.valueOf(stats.getResult()))
                             .collect(java.util.stream.Collectors.toList()).toArray()));
         }
 
@@ -68,10 +68,10 @@ public class ConsoleApp {
             final java.util.Random random = new java.util.Random();
             do {
                 final int player1Value = player1Strategy.equals("r") ?
-                        game.getStoneValue() :
+                        game.getRockValue() :
                         random.nextInt(game.getNumberOfValues());
                 final int player2Value = player2Strategy.equals("r") ?
-                        game.getStoneValue() :
+                        game.getRockValue() :
                         random.nextInt(game.getNumberOfValues());
                 console.printf("%s\n", String.valueOf(game.run(player1Value, player2Value)));
                 maxRounds--;
